@@ -21,7 +21,7 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String logradouro;
-    private Integer numero;
+    private String numero;
     private String complemento;
 
     @ManyToOne
