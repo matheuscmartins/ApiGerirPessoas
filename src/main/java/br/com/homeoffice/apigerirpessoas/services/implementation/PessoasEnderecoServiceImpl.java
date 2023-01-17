@@ -3,7 +3,7 @@ package br.com.homeoffice.apigerirpessoas.services.implementation;
 import br.com.homeoffice.apigerirpessoas.domain.Endereco;
 import br.com.homeoffice.apigerirpessoas.domain.PessoaEndereco;
 import br.com.homeoffice.apigerirpessoas.domain.dto.PessoaEnderecoDTO;
-import br.com.homeoffice.apigerirpessoas.repositories.PesssoaEnderecoRepository;
+import br.com.homeoffice.apigerirpessoas.repositories.PessoaEnderecoRepository;
 import br.com.homeoffice.apigerirpessoas.services.PessoaEnderecoService;
 import br.com.homeoffice.apigerirpessoas.services.exceptions.ObjectNotFoundException;
 import jakarta.persistence.EntityManager;
@@ -20,7 +20,7 @@ public class PessoasEnderecoServiceImpl implements PessoaEnderecoService {
     @PersistenceContext
     private EntityManager em;
     @Autowired
-    private PesssoaEnderecoRepository pesssoaEnderecoRepository;
+    private PessoaEnderecoRepository pessoaEnderecoRepository;
 
     @Autowired
     private ModelMapper mapper;
@@ -28,29 +28,29 @@ public class PessoasEnderecoServiceImpl implements PessoaEnderecoService {
 
     @Override
     public PessoaEndereco findById(Long id) {
-        Optional<PessoaEndereco> obj = pesssoaEnderecoRepository.findById(id);
+        Optional<PessoaEndereco> obj = pessoaEnderecoRepository.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado no id: " + id));
     }
 
     @Override
     public List<PessoaEndereco> findAll() {
-        return pesssoaEnderecoRepository.findAll();
+        return pessoaEnderecoRepository.findAll();
     }
 
     @Override
     public PessoaEndereco create(PessoaEnderecoDTO obj) {
-        return pesssoaEnderecoRepository.save(mapper.map(obj, PessoaEndereco.class));
+        return pessoaEnderecoRepository.save(mapper.map(obj, PessoaEndereco.class));
     }
 
     @Override
     public PessoaEndereco update(PessoaEnderecoDTO obj) {
-        return pesssoaEnderecoRepository.save(mapper.map(obj, PessoaEndereco.class));
+        return pessoaEnderecoRepository.save(mapper.map(obj, PessoaEndereco.class));
     }
 
     @Override
     public void delete(Long id) {
         findById(id);
-        pesssoaEnderecoRepository.deleteById(id);
+        pessoaEnderecoRepository.deleteById(id);
     }
 
     @Override
