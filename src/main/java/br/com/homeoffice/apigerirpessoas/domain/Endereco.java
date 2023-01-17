@@ -1,8 +1,12 @@
 package br.com.homeoffice.apigerirpessoas.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -30,5 +34,7 @@ public class Endereco {
     @JoinColumn(name = "cidade_id")
     private Cidade cidade ;
 
-
+    @JsonIgnore
+    @OneToMany(mappedBy = "endereco")
+    private Set<PessoaEndereco> enderecos = new HashSet<>();
 }
