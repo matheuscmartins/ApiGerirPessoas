@@ -37,9 +37,10 @@ public class PessoasServiceImpl implements PessoaService {
     public Pessoa create(PessoaDTO obj) {
         try {
             return pessoaRepository.save(mapper.map(obj, Pessoa.class));
-        } catch (RuntimeException exception) {
+        } catch (DataIntegrityViolationException exception) {
             throw new DataIntegrityViolationException(exception.getMessage());
         }
+
     }
 
     @Override

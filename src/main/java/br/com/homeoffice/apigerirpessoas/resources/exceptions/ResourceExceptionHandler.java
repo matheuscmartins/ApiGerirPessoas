@@ -1,9 +1,7 @@
 package br.com.homeoffice.apigerirpessoas.resources.exceptions;
 
 
-import br.com.homeoffice.apigerirpessoas.services.exceptions.ConstraintViolationException;
-import br.com.homeoffice.apigerirpessoas.services.exceptions.DataIntegrityViolationException;
-import br.com.homeoffice.apigerirpessoas.services.exceptions.ObjectNotFoundException;
+import br.com.homeoffice.apigerirpessoas.services.exceptions.*;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,4 +38,5 @@ public class ResourceExceptionHandler {
                 LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(), ex.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(standardError);
     }
+
 }
