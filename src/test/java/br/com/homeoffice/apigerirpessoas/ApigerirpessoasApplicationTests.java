@@ -7,7 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ApigerirpessoasApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void main() { //alterar para main
+		ApigerirpessoasApplication.main(new String[] {});
 	}
 
 }
