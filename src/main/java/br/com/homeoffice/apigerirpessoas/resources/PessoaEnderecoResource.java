@@ -1,9 +1,12 @@
 package br.com.homeoffice.apigerirpessoas.resources;
 
 
-import br.com.homeoffice.apigerirpessoas.domain.Pessoa;
+import br.com.homeoffice.apigerirpessoas.domain.Endereco;
 import br.com.homeoffice.apigerirpessoas.domain.dto.PessoaEnderecoDTO;
+import br.com.homeoffice.apigerirpessoas.resources.util.URL;
+import br.com.homeoffice.apigerirpessoas.services.EnderecoService;
 import br.com.homeoffice.apigerirpessoas.services.PessoaEnderecoService;
+import br.com.homeoffice.apigerirpessoas.services.PessoaService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,17 +25,17 @@ public class PessoaEnderecoResource {
     @Autowired
     private PessoaEnderecoService pessoaEnderecoService;
 
+    @Autowired
+    private PessoaService pessoaService;
+
+    @Autowired
+    private EnderecoService enderecoService;
+
     @GetMapping(value = ID)
     public ResponseEntity<PessoaEnderecoDTO> findById(@PathVariable Long id) {
         return ResponseEntity.ok().body(mapper.map(pessoaEnderecoService.findById(id), PessoaEnderecoDTO.class));
     }
-    @GetMapping(value = ID)
-    public ResponseEntity<List<PessoaEnderecoDTO>> findByIdPessoa(@PathVariable Long id, @RequestBody PessoaEnderecoDTO objDTO) {
-        objDTO.setPessoa(objDTO.setId(id)) ;
-        return ResponseEntity.ok().body(pessoaEnderecoService.findByIdPessoa(objDTO).stream().map(
-                x -> mapper.map(x, PessoaEnderecoDTO.class)).collect(Collectors.toList()));
 
-    }
     @GetMapping
     public ResponseEntity<List<PessoaEnderecoDTO>> findAll() {
         return ResponseEntity.ok().body(pessoaEnderecoService.findAll().stream().map(
@@ -57,4 +60,11 @@ public class PessoaEnderecoResource {
         pessoaEnderecoService.delete(id);
         return ResponseEntity.noContent().build();
     }
+    @RequestMapping(value = "/nomepessoa", method = RequestMethod.GET)
+    public ResponseEntity<List<Endereco>>FindByPessoaNome(@RequestParam(value = "nome",
+            defaultValue = "")String nome){
+        nome = URL.decodeParam(nome);
+        return ResponseEntity.ok().body(pessoaEnderecoService.FindByPessoaNome(nome));
+    }
+
 }

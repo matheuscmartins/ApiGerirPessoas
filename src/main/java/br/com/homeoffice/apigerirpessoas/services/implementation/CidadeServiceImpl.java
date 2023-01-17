@@ -4,6 +4,7 @@ import br.com.homeoffice.apigerirpessoas.domain.Cidade;
 import br.com.homeoffice.apigerirpessoas.domain.dto.CidadeDTO;
 import br.com.homeoffice.apigerirpessoas.repositories.CidadeRepository;
 import br.com.homeoffice.apigerirpessoas.services.CidadeService;
+import br.com.homeoffice.apigerirpessoas.services.exceptions.DataIntegrityViolationException;
 import br.com.homeoffice.apigerirpessoas.services.exceptions.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,12 +34,20 @@ public class CidadeServiceImpl implements CidadeService {
 
     @Override
     public Cidade create(CidadeDTO obj) {
+        try{
         return cidadeRepository.save(mapper.map(obj, Cidade.class));
+        } catch (RuntimeException exception) {
+            throw new DataIntegrityViolationException(exception.getMessage());
+        }
     }
 
     @Override
     public Cidade update(CidadeDTO obj) {
+        try{
         return cidadeRepository.save(mapper.map(obj, Cidade.class));
+        } catch (RuntimeException exception) {
+            throw new DataIntegrityViolationException(exception.getMessage());
+        }
     }
 
     @Override

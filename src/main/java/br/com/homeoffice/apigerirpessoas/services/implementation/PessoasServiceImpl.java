@@ -4,6 +4,7 @@ import br.com.homeoffice.apigerirpessoas.domain.Pessoa;
 import br.com.homeoffice.apigerirpessoas.domain.dto.PessoaDTO;
 import br.com.homeoffice.apigerirpessoas.repositories.PessoaRepository;
 import br.com.homeoffice.apigerirpessoas.services.PessoaService;
+import br.com.homeoffice.apigerirpessoas.services.exceptions.DataIntegrityViolationException;
 import br.com.homeoffice.apigerirpessoas.services.exceptions.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ public class PessoasServiceImpl implements PessoaService {
 
     @Autowired
     private ModelMapper mapper;
+
     @Override
     public Pessoa findById(Long id) {
         Optional<Pessoa> obj = pessoaRepository.findById(id);
@@ -33,12 +35,20 @@ public class PessoasServiceImpl implements PessoaService {
 
     @Override
     public Pessoa create(PessoaDTO obj) {
-        return pessoaRepository.save(mapper.map(obj, Pessoa.class));
+        try {
+            return pessoaRepository.save(mapper.map(obj, Pessoa.class));
+        } catch (RuntimeException exception) {
+            throw new DataIntegrityViolationException(exception.getMessage());
+        }
     }
 
     @Override
     public Pessoa update(PessoaDTO obj) {
-        return pessoaRepository.save(mapper.map(obj, Pessoa.class));
+        try {
+            return pessoaRepository.save(mapper.map(obj, Pessoa.class));
+        } catch (RuntimeException exception) {
+            throw new DataIntegrityViolationException(exception.getMessage());
+        }
     }
 
     @Override

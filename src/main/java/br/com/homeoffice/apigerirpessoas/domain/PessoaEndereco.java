@@ -16,6 +16,7 @@ public class PessoaEndereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private EnderecoStatus enderecoStatus;
     @ManyToOne
     @JoinColumn(name = "pessoa_id")

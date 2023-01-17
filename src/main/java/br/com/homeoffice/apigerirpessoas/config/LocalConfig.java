@@ -52,16 +52,15 @@ public class LocalConfig {
                 "", cidade2, null);
         Endereco endereco3 = new Endereco(null, "Jose Fernando", "3137",
                 "", cidade3, null);
-        Endereco endereco4 = new Endereco(null, "Maria Martins", "1898",
-                "", cidade1, null);
-        Endereco endereco5 = new Endereco(null, "Luiz Garcia", "538",
+        Endereco endereco4 = new Endereco(null, "Padre Martins", "1898",
                 "", cidade4, null);
-        enderecoRepository.saveAll(List.of(endereco1, endereco2, endereco3, endereco4, endereco5));
+
+        enderecoRepository.saveAll(List.of(endereco1, endereco2, endereco3, endereco4));
 
         PessoaEndereco pessoaEndereco1 = new PessoaEndereco(null, EnderecoStatus.PRINCIPAL, pessoa1, endereco1);
         PessoaEndereco pessoaEndereco2 = new PessoaEndereco(null, EnderecoStatus.PRINCIPAL, pessoa2, endereco1);
         PessoaEndereco pessoaEndereco3 = new PessoaEndereco(null, EnderecoStatus.PRINCIPAL, pessoa3, endereco1);
-        PessoaEndereco pessoaEndereco4 = new PessoaEndereco(null, EnderecoStatus.SECUNDARIO, pessoa1, endereco5);
+        PessoaEndereco pessoaEndereco4 = new PessoaEndereco(null, EnderecoStatus.SECUNDARIO, pessoa3, endereco4);
         PessoaEndereco pessoaEndereco5 = new PessoaEndereco(null, EnderecoStatus.PRINCIPAL, pessoa4, endereco4);
         PessoaEndereco pessoaEndereco6 = new PessoaEndereco(null, EnderecoStatus.SECUNDARIO, pessoa1, endereco2);
         pessoaEnderecoRepository.saveAll(List.of(pessoaEndereco1, pessoaEndereco2, pessoaEndereco3,

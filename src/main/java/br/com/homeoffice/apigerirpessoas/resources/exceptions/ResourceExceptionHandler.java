@@ -1,6 +1,7 @@
 package br.com.homeoffice.apigerirpessoas.resources.exceptions;
 
 
+import br.com.homeoffice.apigerirpessoas.services.exceptions.ConstraintViolationException;
 import br.com.homeoffice.apigerirpessoas.services.exceptions.DataIntegrityViolationException;
 import br.com.homeoffice.apigerirpessoas.services.exceptions.ObjectNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -30,5 +31,13 @@ public class ResourceExceptionHandler {
                 LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(), ex.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(standardError);
 
+    }
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<StandardError> consTraintViolationsException(
+            ConstraintViolationException ex, HttpServletRequest request
+    ){
+        StandardError standardError = new StandardError(
+                LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(), ex.getMessage(), request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(standardError);
     }
 }

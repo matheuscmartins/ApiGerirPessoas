@@ -4,6 +4,7 @@ import br.com.homeoffice.apigerirpessoas.domain.Endereco;
 import br.com.homeoffice.apigerirpessoas.domain.dto.EnderecoDTO;
 import br.com.homeoffice.apigerirpessoas.repositories.EnderecoRepository;
 import br.com.homeoffice.apigerirpessoas.services.EnderecoService;
+import br.com.homeoffice.apigerirpessoas.services.exceptions.DataIntegrityViolationException;
 import br.com.homeoffice.apigerirpessoas.services.exceptions.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ public class EnderecoServiceImpl implements EnderecoService {
 
     @Autowired
     private ModelMapper mapper;
+
     @Override
     public Endereco findById(Long id) {
         Optional<Endereco> obj = enderecoRepository.findById(id);
@@ -33,12 +35,20 @@ public class EnderecoServiceImpl implements EnderecoService {
 
     @Override
     public Endereco create(EnderecoDTO obj) {
-        return enderecoRepository.save(mapper.map(obj, Endereco.class));
+        try {
+            return enderecoRepository.save(mapper.map(obj, Endereco.class));
+        } catch (RuntimeException exception) {
+            throw new DataIntegrityViolationException(exception.getMessage());
+        }
     }
 
     @Override
     public Endereco update(EnderecoDTO obj) {
-        return enderecoRepository.save(mapper.map(obj, Endereco.class));
+        try {
+            return enderecoRepository.save(mapper.map(obj, Endereco.class));
+        } catch (RuntimeException exception) {
+            throw new DataIntegrityViolationException(exception.getMessage());
+        }
     }
 
     @Override
