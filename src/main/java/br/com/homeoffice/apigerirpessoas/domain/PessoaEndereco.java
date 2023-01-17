@@ -1,5 +1,6 @@
 package br.com.homeoffice.apigerirpessoas.domain;
 
+import br.com.homeoffice.apigerirpessoas.domain.enums.EnderecoStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,7 +16,7 @@ public class PessoaEndereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer enderecoStatus;
+    private EnderecoStatus enderecoStatus;
     @ManyToOne
     @JoinColumn(name = "pessoa_id")
     private Pessoa pessoa;

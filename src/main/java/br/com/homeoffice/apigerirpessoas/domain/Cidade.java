@@ -1,12 +1,8 @@
 package br.com.homeoffice.apigerirpessoas.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -14,7 +10,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tb cidade")
+@Table(name = "tb_cidade")
 public class Cidade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +18,4 @@ public class Cidade {
     private String nome;
     private String uf;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "cidade")
-    private Set<Endereco> enderecos = new HashSet<>();
 }

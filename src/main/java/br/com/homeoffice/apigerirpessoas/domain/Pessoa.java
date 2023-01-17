@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -15,17 +13,14 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tb pessoa")
+@Table(name = "tb_pessoa")
 public class Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyy/MM/dd", timezone = "GMT")
-    private Instant dataNascimento;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "GMT")
+    private LocalDate dataNascimento;
 
-
-    @OneToMany(mappedBy = "pessoa")
-    private Set<PessoaEndereco> enderecos = new HashSet<>();
 }
