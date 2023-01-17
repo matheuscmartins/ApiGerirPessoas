@@ -21,7 +21,6 @@ public class PessoaEndereco {
     @ManyToOne
     @JoinColumn(name = "pessoa_id")
     private Pessoa pessoa;
-
     @ManyToOne
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;

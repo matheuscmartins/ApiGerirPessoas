@@ -9,7 +9,7 @@ import br.com.homeoffice.apigerirpessoas.domain.enums.EnderecoStatus;
 import br.com.homeoffice.apigerirpessoas.repositories.CidadeRepository;
 import br.com.homeoffice.apigerirpessoas.repositories.EnderecoRepository;
 import br.com.homeoffice.apigerirpessoas.repositories.PessoaRepository;
-import br.com.homeoffice.apigerirpessoas.repositories.PesssoaEnderecoRepository;
+import br.com.homeoffice.apigerirpessoas.repositories.PessoaEnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,7 +29,7 @@ public class LocalConfig {
     @Autowired
     private PessoaRepository pessoaRepository;
     @Autowired
-    private PesssoaEnderecoRepository pessoaEnderecoRepository;
+    private PessoaEnderecoRepository pessoaEnderecoRepository;
 
 
     @Bean
