@@ -43,7 +43,7 @@ class CidadeServiceImplTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        startUser();
+        startCidade();
     }
 
     @Test
@@ -142,7 +142,7 @@ class CidadeServiceImplTest {
             assertEquals(OBJETO_NAO_ENCONTRADO_NO_ID, ex.getMessage());
         }
     }
-    private void startUser() {
+    private void startCidade() {
         cidade = new Cidade(ID, NOME, UF);
         cidadeDTO = new CidadeDTO(ID, NOME, UF);
         optionalCidade =  Optional.of(new Cidade(ID, NOME, UF));

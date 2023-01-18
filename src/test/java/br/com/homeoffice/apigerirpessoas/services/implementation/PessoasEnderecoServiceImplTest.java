@@ -48,7 +48,7 @@ class PessoasEnderecoServiceImplTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        startUser();
+        startPessoaEndereco();
     }
     @Test
     void whenFindByIdThenReturnPessoaEnderecoInstance() {
@@ -154,7 +154,7 @@ class PessoasEnderecoServiceImplTest {
             assertEquals(OBJETO_NAO_ENCONTRADO_NO_ID, ex.getMessage());
         }
     }
-    private void startUser() {
+    private void startPessoaEndereco() {
         cidade = new Cidade(1L, "Presidente Prudente", "SP");
         pessoa = new Pessoa(1L, "Maria Cruz", LocalDate.parse("1987-01-28"));
         endereco = new Endereco(1L, "Joao Filho", "33",

@@ -44,7 +44,7 @@ class EnderecoServiceImplTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        startUser();
+        startEndereco();
     }
     @Test
     void whenFindByIdThenReturnEnderecoInstance() {
@@ -155,7 +155,7 @@ class EnderecoServiceImplTest {
             assertEquals(OBJETO_NAO_ENCONTRADO_NO_ID, ex.getMessage());
         }
     }
-    private void startUser() {
+    private void startEndereco() {
         cidade = new Cidade(1L, "Presidente Prudente", "SP");
         endereco = new Endereco(ID, LOGRADOURO,NUMERO,COMPLEMENTO,cidade,null);
         enderecoDTO = new EnderecoDTO(ID, LOGRADOURO,NUMERO,COMPLEMENTO,cidade,null);

@@ -44,7 +44,7 @@ class PessoasServiceImplTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        startUser();
+        startPessoa();
     }
     @Test
     void whenFindByIdThenReturnPessoaInstance() {
@@ -141,7 +141,7 @@ class PessoasServiceImplTest {
             assertEquals(OBJETO_NAO_ENCONTRADO_NO_ID, ex.getMessage());
         }
     }
-    private void startUser() {
+    private void startPessoa() {
         pessoa = new Pessoa(ID, NOME, DATANASCIMENTO);
         pessoaDTO = new PessoaDTO(ID, NOME, DATANASCIMENTO);
         optionalPessoa =  Optional.of(new Pessoa(ID, NOME, DATANASCIMENTO));
