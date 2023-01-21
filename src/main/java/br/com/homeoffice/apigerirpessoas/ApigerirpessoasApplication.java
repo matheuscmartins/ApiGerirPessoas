@@ -9,5 +9,6 @@ public class ApigerirpessoasApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ApigerirpessoasApplication.class, args);
 	}
+	//link do Swagger http://localhost:8080/swagger-ui/index.html
 
 }
