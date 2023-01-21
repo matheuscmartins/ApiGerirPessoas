@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@OpenAPIDefinition(info = @Info(title = "API Cadastro de Pessoas e Endereços", version = "1.0", description = "Cadastro de pessoas e edereços associados as pessoas"))
+@OpenAPIDefinition(info = @Info(title = "API Cadastro de Pessoas e Endereços", version = "1.0", description = "Cadastro de pessoas e endereços associados as pessoas"))
 public class ApigerirpessoasApplication {
 
 	public static void main(String[] args) {
