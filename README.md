@@ -4,6 +4,7 @@
 ° Java 17 LTS, JUnit 5 Mockito, Lombok, ModelMapper, Spring Data JPA, Hibernate, Utilização do banco de dados h2 em tempo de compilação.<br>
 ° Tratamento de exceções de forma personalizada, Desenvolvimento em camadas usando o padrão MVC, Padrão DTO (Data Transfer Objects)<br>
 ° Implementar perfis de Teste e Desenvolvimento<br>
+° Swagger com interface para usuario.<br>
 ° Validações com Validations<br>
 ° API REST usando a ferramenta Postman, as coleções estão prontas na raiz do projeto<br>
 ° Protocolo HTTP no padrão REST<br>
@@ -16,5 +17,6 @@
 <img align="center" height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-plain-wordmark.svg" />
 <img align="center" height="55" width="65" src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg" />
 <img align="center" height="50" width="60" src="https://voyager.postman.com/logo/postman-logo-icon-orange.svg" />
-<img align="center" height="50" width="90" src="https://maven.apache.org/images/maven-logo-black-on-white.png" />                    
+<img align="center" height="50" width="90" src="https://maven.apache.org/images/maven-logo-black-on-white.png" />    
+<img align="center" height="70" width="160" src="https://static1.smartbear.co/swagger/media/assets/images/swagger_logo.svg"/>  
 </div>
