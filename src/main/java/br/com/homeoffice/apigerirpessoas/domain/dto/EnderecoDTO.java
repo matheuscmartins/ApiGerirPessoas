@@ -2,6 +2,7 @@ package br.com.homeoffice.apigerirpessoas.domain.dto;
 
 import br.com.homeoffice.apigerirpessoas.domain.Cidade;
 import br.com.homeoffice.apigerirpessoas.domain.PessoaEndereco;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -28,6 +29,6 @@ public class EnderecoDTO {
     @Size(max = 15)
     private String complemento;
     private Cidade cidade ;
-
+    @JsonIgnore
     private Set<PessoaEndereco> enderecos = new HashSet<>();
 }

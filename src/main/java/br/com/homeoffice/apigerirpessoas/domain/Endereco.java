@@ -34,7 +34,8 @@ public class Endereco {
     @JoinColumn(name = "cidade_id")
     private Cidade cidade ;
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "endereco")
+    @JsonIgnore
     private Set<PessoaEndereco> enderecos = new HashSet<>();
 }
